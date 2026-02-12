@@ -1,0 +1,233 @@
+Task 1: Scan Your Local Network for Open Ports
+
+Tools Used
+
+Nmap (TCP SYN Scan)
+
+Wireshark (Packet Analysis)
+
+Kali Linux
+
+Step 1: Identify Local IP Address
+
+Command used:
+
+ifconfig
+
+
+Result:
+
+IP Address: 192.168.1.226
+Netmask: 255.255.255.0
+Network Range: 192.168.1.0/24
+
+Step 2: Perform TCP SYN Scan
+
+Command used:
+
+nmap -sS 192.168.1.0/24
+
+
+Scan Result Summary:
+
+Total IPs scanned: 256
+
+Hosts up: 5
+
+Scan type: TCP SYN (Stealth Scan)
+
+Step 3: Open Ports Discovered
+Host: 192.168.1.1
+
+21/tcp – FTP
+
+53/tcp – DNS
+
+80/tcp – HTTP
+
+443/tcp – HTTPS
+
+Host: 192.168.1.3
+
+8008/tcp – HTTP (Alt)
+
+8009/tcp – AJP13
+
+8443/tcp – HTTPS-Alt
+
+9000/tcp – cslistener
+
+9080/tcp – glrpc
+
+Host: 192.168.1.5
+
+135/tcp – MSRPC
+
+139/tcp – NetBIOS
+
+445/tcp – SMB
+
+Total Open Ports Identified
+
+21, 53, 80, 443, 8008, 8009, 8443, 9000, 9080, 135, 139, 445
+
+Step 4: Service & Risk Analysis
+1. Port 21 – FTP
+
+Risk:
+
+Sends credentials in plain text
+
+Can be captured using Wireshark
+
+Anonymous login possible
+
+Vulnerable to brute-force attacks
+
+2. Port 53 – DNS
+
+Risk:
+
+DNS spoofing
+
+Cache poisoning
+
+DNS amplification attacks
+
+Information leakage
+
+3. Port 80 – HTTP
+
+Risk:
+
+No encryption
+
+Data visible in packet capture
+
+SQL Injection
+
+Cross-Site Scripting (XSS)
+
+Session hijacking
+
+4. Port 443 – HTTPS
+
+Risk:
+
+Weak SSL/TLS configuration
+
+Expired certificates
+
+Vulnerable backend web application
+
+5. Port 8008 – Alternate HTTP
+
+Risk:
+
+Often misconfigured
+
+Internal application exposure
+
+Weak authentication
+
+6. Port 8009 – AJP13 (High Risk)
+
+Risk:
+
+Vulnerable to Ghostcat (CVE-2020-1938)
+
+File read vulnerability
+
+Sensitive data exposure
+
+7. Port 8443 – HTTPS-Alt
+
+Risk:
+
+Weak encryption
+
+Misconfigured SSL
+
+Vulnerable web apps
+
+8. Port 9000 – cslistener
+
+Risk:
+
+Custom application port
+
+Possible admin service
+
+Potential malware C2 communication
+
+9. Port 9080 – glrpc
+
+Risk:
+
+Middleware exposure
+
+Authentication bypass
+
+Possible remote code execution
+
+10. Port 135 – MSRPC (High Risk)
+
+Risk:
+
+Windows RPC service
+
+Remote exploitation possibility
+
+Used in lateral movement attacks
+
+11. Port 139 – NetBIOS (High Risk)
+
+Risk:
+
+File sharing exposure
+
+User enumeration
+
+Information disclosure
+
+Brute force attacks
+
+12. Port 445 – SMB (Very High Risk)
+
+Risk:
+
+EternalBlue exploit
+
+WannaCry ransomware
+
+Remote code execution
+
+Unauthorized file system access
+
+This port should never be exposed to the internet.
+
+Step 5: Wireshark Analysis
+
+Wireshark was used to monitor network traffic during the Nmap scan.
+
+Observations:
+
+TCP SYN packets sent to multiple hosts
+
+SYN-ACK responses from open ports
+
+RST packets from closed ports
+
+Clear-text HTTP traffic visible
+
+FTP communication can be captured in plain text
+
+Wireshark complements Nmap by:
+
+Showing packet-level communication
+
+Verifying open port responses
+
+Identifying unencrypted traffic
+
+Detecting suspicious behavior
