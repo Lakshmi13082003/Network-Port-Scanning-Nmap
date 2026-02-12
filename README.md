@@ -123,18 +123,6 @@ Inspecting packet-level details
 
 Identifying unencrypted communication
 
-🔐 Key Concepts Learned
-
-Port Scanning
-
-TCP SYN (Stealth) Scan
-
-Network Reconnaissance
-
-Open Port Risk Analysis
-
-Firewall Importance
-
 Packet Analysis
 
 🛡 Recommended Security Measures
@@ -148,16 +136,6 @@ Replace FTP with SFTP
 Configure firewall rules
 
 Keep services updated and patched
-
-📁 Repository Contents
-
-nmap_scan.txt – Nmap scan output
-
-network_capture.pcapng – Wireshark capture
-
-task1_network_scan_report.txt – Detailed report
-
-README.md – Project documentation
 
 ✅ Outcome
 
