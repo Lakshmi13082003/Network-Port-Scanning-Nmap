@@ -1,4 +1,5 @@
-Network Port Scanning & Service Analysis
+# Network Port Scanning & Service Analysis
+
 📌 Objective
 
 The objective of this task is to perform network reconnaissance by scanning the local network for open ports, identifying running services, and analyzing potential security risks associated with exposed services.
